@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food4U - Member Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="contact.html">Reach Us</a></li>
+            <li><a href="login.html">Member Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Welcome to Food4U</h1>
+                <p>Sign in to enjoy exclusive dining offers</p>
+            </div>
+
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Registered Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Account Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="login-button">Access My Account</button>
+
+                <div class="login-footer">
+                    <p>New to Food4U? <a href="#">Create an account</a></p>
+                    <p><a href="#">Forgot your password?</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            alert('Member login will be connected to the Food4U system. Email: ' + email);
+        }
+    </script>
+    <script src="darkMode.js"></script>
+
+</body>
+</html>

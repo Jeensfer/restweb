@@ -1,0 +1,412 @@
+/* =========================================================
+   GLOBAL RESET & VARIABLES (Aesthetic Palette)
+   ========================================================= */
+:root {
+    --bg-main: #f5f7fb;
+    --bg-card: #ffffff;
+    --primary: #6c63ff;      /* soft violet */
+    --secondary: #00c9a7;    /* mint teal */
+    --accent: #ffb703;      /* warm amber */
+    --danger: #ff6b6b;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+    --glass: rgba(255,255,255,0.65);
+    --shadow-sm: 0 8px 20px rgba(0,0,0,0.08);
+    --shadow-md: 0 15px 40px rgba(0,0,0,0.12);
+    --shadow-lg: 0 30px 80px rgba(0,0,0,0.18);
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --transition-fast: 0.25s ease;
+    --transition-mid: 0.4s ease;
+    --transition-slow: 0.6s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #eef1ff, var(--bg-main));
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   NAVIGATION (Glassmorphism + Glow)
+   ========================================================= */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(108,99,255,0.9), rgba(0,201,167,0.9));
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-md);
+    padding: 1.1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.8rem;
+}
+
+nav a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    transition: var(--transition-mid);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(255,255,255,0.25);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: var(--transition-fast);
+}
+
+nav a:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+nav a:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   HERO SECTION (Parallax Feel + Glow Text)
+   ========================================================= */
+.hero {
+    min-height: 85vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    animation: fadeUp 1s ease forwards;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 0 auto 2.8rem;
+    color: #f1f1f1;
+    animation: fadeUp 1.3s ease forwards;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    box-shadow: 0 15px 40px rgba(108,99,255,0.5);
+    transition: var(--transition-mid);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 70px rgba(108,99,255,0.7);
+}
+
+/* =========================================================
+   FEATURES (Floating Cards + Gradient Icons)
+   ========================================================= */
+.features {
+    padding: 5rem 6%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.feature-card {
+    background: linear-gradient(180deg, #ffffff, #f7f8ff);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-mid);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(108,99,255,0.15), transparent 60%);
+    opacity: 0;
+    transition: var(--transition-slow);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    font-size: 3.4rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   MENU ITEMS (Hover Reveal + Depth)
+   ========================================================= */
+.menu-page {
+    padding: 4.5rem 6%;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.menu-item {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-mid);
+}
+
+.menu-item:hover {
+    transform: translateY(-14px) scale(1.03);
+    box-shadow: var(--shadow-lg);
+}
+
+.menu-item-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.menu-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.menu-item:hover img {
+    transform: scale(1.15);
+}
+
+.menu-item-content {
+    padding: 1.8rem;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--danger));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   CONTACT & LOGIN (Formal Centered Cards)
+   ========================================================= */
+
+.contact-page,
+.login-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 6%;
+    background: #f4f6f8;
+}
+
+/* Shared container */
+.contact-container,
+.login-container {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 3rem 3rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Headings */
+.contact-container h2,
+.login-container h2 {
+    text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: 1.4rem;
+    color: #2d3436;
+}
+
+/* Subtext */
+.contact-container p,
+.login-container p {
+    text-align: center;
+    font-size: 1.05rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+}
+
+/* Forms */
+.contact-container form,
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+/* Labels */
+.contact-container label,
+.login-container label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2d3436;
+}
+
+/* Inputs */
+.contact-container input,
+.contact-container textarea,
+.login-container input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #dcdde1;
+    font-size: 1rem;
+}
+
+/* Focus */
+.contact-container input:focus,
+.contact-container textarea:focus,
+.login-container input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 3px rgba(108,99,255,0.2);
+}
+
+/* Buttons */
+.submit-button,
+.login-button {
+    margin-top: 1.2rem;
+    align-self: center;
+    background: #6c63ff;
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem 2.8rem;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Hover */
+.submit-button:hover,
+.login-button:hover {
+    background: #584ff5;
+}
+
+
+/* =========================================================
+   FORMS & INPUTS (Soft Glow Focus)
+   ========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(108,99,255,0.25);
+}
+
+.submit-button,
+.login-button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: var(--transition-mid);
+}
+
+.submit-button:hover,
+.login-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(108,99,255,0.5);
+}
+
+/* =========================================================
+   FOOTER (Minimal Dark Contrast)
+   ========================================================= */
+footer {
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+    color: #dfe6e9;
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE TWEAKS
+   ========================================================= */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 1.4rem;
+    }
+
+    .hero-content p {
+        font-size: 1.15rem;
+    }
+}
